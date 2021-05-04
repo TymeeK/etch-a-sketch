@@ -33,9 +33,20 @@ function changeColor(e) {
 }
 
 function buttonPress() {
+    const container = document.querySelector("#container");
     const button = document.getElementById("button-grid");
     button.addEventListener("click", () => {
-        console.log(button);
+        let answer = prompt("Please enter a number between 1 and 100");
+        if (answer >= 1 && answer <= 100) {
+            while (container.hasChildNodes()) {
+                container.removeChild(container.firstChild);
+            }
+            createGrid(answer, answer);
+            checkMouseEnter();
+        }
+        else {
+            alert("Please enter a number between 1 and 100");
+        }
 
     });
 }
